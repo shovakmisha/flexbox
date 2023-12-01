@@ -1,0 +1,74 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.flex-container {
+  border: 10px solid #7f00ff;
+}
+
+.flex-item {
+  padding: 10px;
+  font: 900 60px "Roboto", sans-serif;
+  color: #fff;
+  text-align: center;
+  text-shadow: 4px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.item-1 {
+  background-image: linear-gradient(45deg, #ff8177, #cf556c);
+}
+
+.item-2 {
+  background: linear-gradient(45deg, #84fab0, #8fd3f4);
+}
+
+.item-3 {
+  background: linear-gradient(45deg, #a6c0fe, #f68084);
+}
+
+.item-4 {
+  background: linear-gradient(45deg, #d4fc79, #96e6a1);
+}
+
+.item-5 {
+  background: linear-gradient(45deg, #43e97b, #38f9d7);
+}
+
+.item-6 {
+  background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+}
+
+.item-7 {
+  background: linear-gradient(45deg, #8e2de2, #4a00e0);
+}
+
+.item-8 {
+  background: linear-gradient(45deg, #e1eec3, #f05053);
+}
+
+/* Custom styles */
+.flex-container {
+  display: flex;
+  /* Я писав внизу як будуть вести себе елементи(діти), якщо їм дати різні ширини. Але це тільки тому, що елементи не переносяться
+     по дефолту на інший рядок (flex-wrap: nowrap) */
+  flex-wrap: wrap; /* Тепер мої елементи дійсно будуть мати ширину 400px і їх поведінка буде схожа на inline-block */
+  /* Я вже писав про це, але тепер можна прийняти це за факт. По поперечній осі(неосновній, вертикальній як правило)
+     елементи займуть всю доступну висоту батька. Тобто height: 100vh перетворить елементи дітей в плитки */
+  /* padding: 5px; */
+  height: 100vh;
+  /* щоб не задавати марджіни дітям, можна використати свойство gap */
+  /* gap: 10px */ /* Воно буде працювати як по горизонталі так і по вертикалі */
+}
+
+.flex-item {
+  /* Коли .flex-container має значення тільки display: flex; - діти його можуть мати ширину, але ця ширина не буде схожа на на що
+     Якщо я задам недостаню ширину для заповнення простору батька, воно і не заповниться, а коли задам більшу, воно розподілиться рівномірно
+     Тобто width: 400px; і всі діти будуть мати одинакову ширину, хоча ця ширина більша ніж треба */
+    width: 400px;
+  /* Margin. Марджіни можна задавати, але треба враховевати їхній розмір. При flex-wrap: nowrap; вони будуть вести звичайно,
+     але коли flex-wrap: wrap; їх треба враховувати так само як і при display: inline-block; */
+    margin: 5px; /* І ще я помінив, що при такому сценарію margin-collapce не працює. Відстань між блоками 10px */
+}
